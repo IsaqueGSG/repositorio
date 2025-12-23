@@ -1,35 +1,89 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect, useRef } from 'react'
+import Navbar from './components/Navbar'
+import Home from './components/Home'
+import Projetos from './components/Projetos'
+import Contato from './components/Contato'
+import Sobre from './components/Sobre'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [index, setIndex] = useState(0)
+  const total = 4
+  const isScrolling = useRef(false)
+
+  function goTo(i) {
+    if (i < 0 || i >= total) return
+    setIndex(i)
+  }
+
+  function next() {
+    goTo(index + 1)
+  }
+
+  function prev() {
+    goTo(index - 1)
+  }
+
+  useEffect(() => {
+    function onWheel(e) {
+      if (isScrolling.current) return
+
+      isScrolling.current = true
+
+      if (e.deltaY > 0) {
+        next()
+      } else {
+        prev()
+      }
+
+      setTimeout(() => {
+        isScrolling.current = false
+      }, 800) // mesmo tempo da animação
+    }
+
+    function onKeyDown(e) {
+      if (isScrolling.current) return
+
+      if (e.key === 'ArrowDown') {
+        isScrolling.current = true
+        next()
+      }
+
+      if (e.key === 'ArrowUp') {
+        isScrolling.current = true
+        prev()
+      }
+
+      if (isScrolling.current) {
+        setTimeout(() => {
+          isScrolling.current = false
+        }, 800)
+      }
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: true })
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [index])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <Navbar goTo={goTo} />
+
+      <div
+        className="viewport"
+        style={{
+          transform: `translateY(-${index * 100}vh)`
+        }}
+      >
+        <section className="section"><Home /></section>
+        <section className="section"><Projetos /></section>
+        <section className="section"><Contato /></section>
+        <section className="section"><Sobre /></section>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
-
-export default App
