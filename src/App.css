@@ -1,35 +1,8 @@
-html, body, #root {
-  height: 100%;
-  margin: 0;
-}
-
 /* nada de scroll */
 .app {
   height: 100vh;
   overflow: hidden;
   background: black;
-}
-
-/* navbar fixa */
-.navbar {
-  position: fixed;
-  top: 0;
-  height: 60px;
-  width: 100%;
-  background: #000;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-.navbar button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
 /* container que se move */

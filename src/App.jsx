@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
+
+import './App.css'
+
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Projetos from './components/Projetos'
