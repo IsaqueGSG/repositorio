@@ -1,8 +1,170 @@
+import { useState } from "react"
+import "./index.css"
 
-export default function Sobre() {
+const data = [
+  {
+    year: "2020",
+    items: [
+      {
+        title: "Ensino Médio Completo",
+        text: "Concluí o ensino médio na escola estadual Guilhermino Rodrigues de Lima."
+      },
+      {
+        title: "Primeira Realização Enem",
+        text: "Decorrente a pandemia de Covid-19 o enem que deveria ter ocorrido em 2020 foi realizado em 2021."
+      }
+    ],
+  },
+  {
+    year: "2021",
+    items: [
+      {
+        title: "Tecnólogo em Analise e Desenvolvimento de Sistemas",
+        text: "Ingressei na area de TI com o curso de ADS na Faculdade Eniac usando o Prouni."
+      }
+    ]
+  },
+  {
+    year: "2022",
+    items: [
+      {
+        title: "Primeiro estágio na área de TI",
+        text: "Estágio como Suporte Técnico na Amecred."
+      }
+    ]
+  },
+  {
+    year: "2023",
+    items: [
+      {
+        title: "Experiencia profissional como Líder de equipe",
+        text: "Liderei o time de suporte técnico na Faculdade Unifesp."
+      },
+      {
+        title: "Conclusão do Tecnólogo em Análise e Desenvolvimento de Sistemas",
+        text: "Encerramento do curso e colação de grau."
+      },
+      {
+        title: "Segunda realização Enem",
+        text: "Sem grande expectativas realizei o enem para incentivo de pessoas proximas."
+      }
+    ]
+  },
+  {
+    year: "2024",
+    items: [
+      {
+        title: "Bacharelado em Engenharia da Computação",
+        text: "ingressei no curso de Engenharia da Computação do Instituto Federal de SP usando o SISU."
+      }
+    ]
+  }
+]
+
+export default function TimelineCarousel() {
+  const [active, setActive] = useState(0)
+
+  const progressWidth = (active / (data.length - 1)) * 100
+
+  const next = () => {
+    if (active < data.length - 1) setActive(active + 1)
+  }
+
+  const prev = () => {
+    if (active > 0) setActive(active - 1)
+  }
+
+  const [touchStartX, setTouchStartX] = useState(null)
+  const [touchStartY, setTouchStartY] = useState(null)
+  const [touchEndX, setTouchEndX] = useState(null)
+
+  const minSwipeDistance = 50
+
+
+
+  const onTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX)
+    setTouchStartY(e.targetTouches[0].clientY)
+    setTouchEndX(null)
+  }
+
+  const onTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = (e) => {
+    if (touchStartX === null || touchEndX === null) return
+
+    const deltaX = touchStartX - touchEndX
+    const deltaY = touchStartY - e.changedTouches[0].clientY
+
+    // Só dispara se for claramente horizontal
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+      deltaX > 0 ? next() : prev()
+    }
+  }
+
 
   return (
-    <div id="Sobre">Sobre</div>
+    <div className="timeline-wrapper">
+
+      {/* ===== TIMELINE ===== */}
+      <div className="progress-container">
+        <div className="progress-line">
+          <div
+            className="progress-fill"
+            style={{ width: `${progressWidth}%` }}
+          />
+        </div>
+
+        <div className="progress-steps">
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className="step-wrapper"
+              onClick={() => setActive(index)}
+            >
+              <span className="step-label">{data[index].year}</span>
+
+              <div className={`step ${index <= active ? "active" : ""}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ===== CARROSSEL ===== */}
+      <div className="carousel">
+
+        <div
+          className="carousel-viewport"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <div
+            className="carousel-track"
+            style={{ transform: `translateX(-${active * 100}%)` }}
+          >
+            {data.map((yearData, index) => (
+              <div className="card" key={index}>
+                <h2>{yearData.year}</h2>
+
+                {yearData.items.map((item, i) => (
+                  <div key={i} style={{ marginBottom: "15px" }}>
+                    <h4>{item.title}</h4>
+                    <p>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+
+        </div>
+        <div className="containerBtnNav">
+          <button className="nav left" onClick={prev}>❮</button>
+          <button className="nav right" onClick={next}>❯</button>
+        </div>
+      </div>
+    </div>
   )
 }
-

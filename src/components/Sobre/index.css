@@ -1,0 +1,119 @@
+/* ===== GERAL ===== */
+.timeline-wrapper {
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  font-family: sans-serif;
+}
+
+/* ===== TIMELINE ===== */
+.progress-container {
+  position: relative;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.progress-line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4caf50;
+  width: 0;
+  transition: width 0.5s ease;
+  border-radius: 2px;
+}
+
+.progress-steps {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.step-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.step-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.step {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  background: #555;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background 0.3s;
+}
+
+.step.active {
+  background: #4caf50;
+}
+
+/* ===== CARROSSEL ===== */
+.carousel {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.card {
+  min-width: 100%;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+/* ===== BOTÕES ===== */
+.containerBtnNav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

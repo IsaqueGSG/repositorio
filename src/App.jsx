@@ -12,6 +12,9 @@ export default function App() {
   const [index, setIndex] = useState(0)
   const total = 4
   const isScrolling = useRef(false)
+  const touchStartY = useRef(0)
+  const touchEndY = useRef(0)
+
 
   function goTo(i) {
     if (i < 0 || i >= total) return
@@ -29,48 +32,50 @@ export default function App() {
   useEffect(() => {
     function onWheel(e) {
       if (isScrolling.current) return
-
       isScrolling.current = true
-
-      if (e.deltaY > 0) {
-        next()
-      } else {
-        prev()
-      }
-
-      setTimeout(() => {
-        isScrolling.current = false
-      }, 800) // mesmo tempo da animação
+      e.deltaY > 0 ? next() : prev()
+      setTimeout(() => (isScrolling.current = false), 800)
     }
 
     function onKeyDown(e) {
       if (isScrolling.current) return
+      if (e.key === 'ArrowDown') next()
+      if (e.key === 'ArrowUp') prev()
+      isScrolling.current = true
+      setTimeout(() => (isScrolling.current = false), 800)
+    }
 
-      if (e.key === 'ArrowDown') {
-        isScrolling.current = true
-        next()
-      }
+    function onTouchStart(e) {
+      touchStartY.current = e.touches[0].clientY
+    }
 
-      if (e.key === 'ArrowUp') {
-        isScrolling.current = true
-        prev()
-      }
+    function onTouchEnd(e) {
+      touchEndY.current = e.changedTouches[0].clientY
+      const diff = touchStartY.current - touchEndY.current
 
-      if (isScrolling.current) {
-        setTimeout(() => {
-          isScrolling.current = false
-        }, 800)
-      }
+      if (Math.abs(diff) < 50) return // ignora toque curto
+      if (isScrolling.current) return
+
+      isScrolling.current = true
+
+      diff > 0 ? next() : prev()
+
+      setTimeout(() => (isScrolling.current = false), 800)
     }
 
     window.addEventListener('wheel', onWheel, { passive: true })
     window.addEventListener('keydown', onKeyDown)
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchend', onTouchEnd, { passive: true })
 
     return () => {
       window.removeEventListener('wheel', onWheel)
       window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchend', onTouchEnd)
     }
   }, [index])
+
 
   return (
     <div className="app">
