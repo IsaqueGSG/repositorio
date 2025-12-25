@@ -2,7 +2,7 @@
 .app {
   height: 100vh;
   overflow: hidden;
-  background: black;
+  background: #0e0e0e;
 }
 
 /* container que se move */

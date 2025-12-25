@@ -3,14 +3,13 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
-import Home from './components/Home'
 import Projetos from './components/Projetos'
 import Contato from './components/Contato'
 import Sobre from './components/Sobre'
 
 export default function App() {
   const [index, setIndex] = useState(0)
-  const total = 4
+  const total = 3
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
   const touchEndY = useRef(0)
@@ -87,10 +86,9 @@ export default function App() {
           transform: `translateY(-${index * 100}vh)`
         }}
       >
-        <section className="section"><Home /></section>
+        <section className="section"><Sobre /></section>
         <section className="section"><Projetos /></section>
         <section className="section"><Contato /></section>
-        <section className="section"><Sobre /></section>
       </div>
     </div>
   )

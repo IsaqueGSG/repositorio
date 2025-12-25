@@ -6,7 +6,6 @@ export default function Navbar({ goTo }) {
       <button onClick={() => goTo(0)}>0</button>
       <button onClick={() => goTo(1)}>1</button>
       <button onClick={() => goTo(2)}>2</button>
-      <button onClick={() => goTo(3)}>3</button>
     </nav>
   )
 }
