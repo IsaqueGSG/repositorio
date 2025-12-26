@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "./index.css"
 
 const data = [
@@ -103,6 +103,25 @@ export default function TimelineCarousel() {
       deltaX > 0 ? next() : prev()
     }
   }
+
+
+useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowRight") {
+      next()
+    }
+
+    if (e.key === "ArrowLeft") {
+      prev()
+    }
+  }
+
+  window.addEventListener("keydown", handleKeyDown)
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown)
+  }
+}, [active])
 
 
   return (
