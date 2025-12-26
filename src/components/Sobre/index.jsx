@@ -61,7 +61,9 @@ const data = [
   }
 ]
 
-export default function TimelineCarousel() {
+export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
+  const emFoco = sessaoEmFoco === indexDaSessao
+
   const [active, setActive] = useState(0)
 
   const progressWidth = (active / (data.length - 1)) * 100
@@ -79,7 +81,6 @@ export default function TimelineCarousel() {
   const [touchEndX, setTouchEndX] = useState(null)
 
   const minSwipeDistance = 50
-
 
 
   const onTouchStart = (e) => {
@@ -105,23 +106,20 @@ export default function TimelineCarousel() {
   }
 
 
-useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.key === "ArrowRight") {
-      next()
+  useEffect(() => {
+    if (!emFoco) return
+
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowRight") next()
+      if (e.key === "ArrowLeft") prev()
     }
 
-    if (e.key === "ArrowLeft") {
-      prev()
+    window.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
     }
-  }
-
-  window.addEventListener("keydown", handleKeyDown)
-
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown)
-  }
-}, [active])
+  }, [emFoco, active])
 
 
   return (

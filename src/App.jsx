@@ -33,15 +33,15 @@ export default function App() {
       if (isScrolling.current) return
       isScrolling.current = true
       e.deltaY > 0 ? next() : prev()
-      setTimeout(() => (isScrolling.current = false), 800)
+      isScrolling.current = false
+
     }
 
     function onKeyDown(e) {
       if (isScrolling.current) return
       if (e.key === 'ArrowDown') next()
       if (e.key === 'ArrowUp') prev()
-      isScrolling.current = true
-      setTimeout(() => (isScrolling.current = false), 800)
+      isScrolling.current = false
     }
 
     function onTouchStart(e) {
@@ -58,8 +58,7 @@ export default function App() {
       isScrolling.current = true
 
       diff > 0 ? next() : prev()
-
-      setTimeout(() => (isScrolling.current = false), 800)
+      isScrolling.current = false
     }
 
     window.addEventListener('wheel', onWheel, { passive: true })
@@ -76,6 +75,12 @@ export default function App() {
   }, [index])
 
 
+  //usa os Indices das sessões para saber qual está em foco
+  //indice as sessoes dependem da construcao do html abaixo
+  const sessaoEmFoco = index
+
+
+
   return (
     <div className="app">
       <Navbar goTo={goTo} />
@@ -86,9 +91,28 @@ export default function App() {
           transform: `translateY(-${index * 100}vh)`
         }}
       >
-        <section className="section"><Sobre /></section>
-        <section className="section"><Projetos /></section>
-        <section className="section"><Contato /></section>
+        {/* Hard code para melhor visualização */}
+        <section className="section">
+          <Sobre
+            sessaoEmFoco={sessaoEmFoco}
+            indexDaSessao={0}
+          />
+        </section>
+
+        <section className="section">
+          <Projetos
+            sessaoEmFoco={sessaoEmFoco}
+            indexDaSessao={1}
+          />
+        </section>
+
+        <section className="section">
+          <Contato
+            sessaoEmFoco={sessaoEmFoco}
+            indexDaSessao={2}
+          />
+        </section>
+
       </div>
     </div>
   )
