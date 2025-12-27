@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
-import Projetos from './components/Projetos'
+import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
 import Sobre from './components/Sobre'
 
@@ -13,7 +13,6 @@ export default function App() {
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
   const touchEndY = useRef(0)
-
 
   function goTo(i) {
     if (i < 0 || i >= total) return
@@ -74,12 +73,9 @@ export default function App() {
     }
   }, [index])
 
-
   //usa os Indices das sessões para saber qual está em foco
   //indice as sessoes dependem da construcao do html abaixo
   const sessaoEmFoco = index
-
-
 
   return (
     <div className="app">
@@ -91,27 +87,20 @@ export default function App() {
           transform: `translateY(-${index * 100}vh)`
         }}
       >
+
         {/* Hard code para melhor visualização */}
-        <section className="section">
+        <section className="section section0">
           <Sobre
             sessaoEmFoco={sessaoEmFoco}
             indexDaSessao={0}
           />
-        </section>
 
-        <section className="section">
-          <Projetos
+          <Habilidades
             sessaoEmFoco={sessaoEmFoco}
             indexDaSessao={1}
           />
         </section>
 
-        <section className="section">
-          <Contato
-            sessaoEmFoco={sessaoEmFoco}
-            indexDaSessao={2}
-          />
-        </section>
 
       </div>
     </div>

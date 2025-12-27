@@ -20,14 +20,11 @@ const skills = [
   { name: "Node.js", icon: <FaNodeJs /> }
 ]
 
-export default function Skills() {
+export default function Habilidades() {
   return (
     <section className="skills-section">
-      <p className="skills-subtitle">
-        TODO PROBLEMA É UMA OPORTUNIDADE DE EVOLUIR.
-      </p>
 
-      <h2 className="skills-title">Skills & Experiencias</h2>
+      <h2 className="skills-title">Habilidades & Experiencias</h2>
 
       <div className="skills-grid">
         {skills.map((skill, index) => (

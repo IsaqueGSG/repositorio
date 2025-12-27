@@ -123,34 +123,33 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
 
 
   return (
-    <div className="timeline-wrapper">
+    <section className="sobre-section">
+      <div className="containerSobre"> {/* ===== TIMELINE ===== */}
 
-      {/* ===== TIMELINE ===== */}
-      <div className="progress-container">
-        <div className="progress-line">
-          <div
-            className="progress-fill"
-            style={{ width: `${progressWidth}%` }}
-          />
-        </div>
-
-        <div className="progress-steps">
-          {data.map((item, index) => (
+        <div className="progress-container">
+          <div className="progress-line">
             <div
-              key={index}
-              className="step-wrapper"
-              onClick={() => setActive(index)}
-            >
-              <span className="step-label">{data[index].year}</span>
+              className="progress-fill"
+              style={{ width: `${progressWidth}%` }}
+            />
+          </div>
 
-              <div className={`step ${index <= active ? "active" : ""}`} />
-            </div>
-          ))}
+          <div className="progress-steps">
+            {data.map((item, index) => (
+              <div
+                key={index}
+                className="step-wrapper"
+                onClick={() => setActive(index)}
+              >
+                <span className="step-label">{data[index].year}</span>
+
+                <div className={`step ${index <= active ? "active" : ""}`} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* ===== CARROSSEL ===== */}
-      <div className="carousel">
+        {/* ===== CARROSSEL ===== */}
 
         <div
           className="carousel-viewport"
@@ -182,6 +181,7 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
           <button className="nav right" onClick={next}>❯</button>
         </div>
       </div>
-    </div>
+
+    </section>
   )
 }

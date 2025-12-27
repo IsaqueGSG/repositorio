@@ -1,16 +1,30 @@
-/* ===== GERAL ===== */
-.timeline-wrapper {
-  width: 80%;
-  margin: 0 auto;
+/* index.css sobre */
+
+.sobre-section {
   color: white;
   font-family: sans-serif;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: #0e0e0e; */
+  /* border: 1px solid red; */
+
+}
+
+.containerSobre {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ===== TIMELINE ===== */
 .progress-container {
   position: relative;
   height: 100px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
 }
 
 .progress-line {
@@ -67,14 +81,9 @@
   background: white;
 }
 
-/* ===== CARROSSEL ===== */
-.carousel {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-}
 
+
+/* ===== CARROSSEL ===== */
 .carousel-viewport {
   overflow: hidden;
   width: 100%;
@@ -83,19 +92,23 @@
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .card {
-  min-width: 100%;
+  flex: 0 0 100%;
+  /* 🔥 MUITO IMPORTANTE */
   background: #1e1e1e;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
   margin-bottom: 10px;
 }
+
+
 
 /* ===== BOTÕES ===== */
 .containerBtnNav {
@@ -116,4 +129,11 @@
 .nav:disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .sobre-section {
+    width: 80%;
+    height: 100vh;
+  }
 }

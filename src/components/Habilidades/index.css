@@ -1,17 +1,16 @@
+/* index.css habilidades */
+
 .skills-section {
-  min-height: 100vh;
-  padding: 80px 10%;
-  background: #0e0e0e;
+  width: 30%;
   color: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background: #0e0e0e; */
+  /* border: 1px solid red; */
 }
 
-.skills-subtitle {
-  font-size: 12px;
-  letter-spacing: 2px;
-  opacity: 0.6;
-  margin-bottom: 10px;
-}
 
 .skills-title {
   font-size: 48px;
@@ -21,7 +20,7 @@
 
 .skills-description {
   max-width: 700px;
-  margin: 0 auto 60px;
+  margin: 0 auto;
   font-size: 16px;
   opacity: 0.8;
   line-height: 1.6;
@@ -53,4 +52,11 @@
 /* ÍCONE */
 .skill-icon {
   font-size: 48px;
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    width: 80%;
+    height: 100vh;
+  }
 }
