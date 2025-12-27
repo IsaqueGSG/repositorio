@@ -90,6 +90,7 @@ export default function App() {
 
         {/* Hard code para melhor visualização */}
         <section className="section section0">
+          
           <Sobre
             sessaoEmFoco={sessaoEmFoco}
             indexDaSessao={0}

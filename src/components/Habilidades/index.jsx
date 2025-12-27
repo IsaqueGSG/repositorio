@@ -13,7 +13,7 @@ const skills = [
   { name: "Firebase", icon: <IoLogoFirebase /> },
   { name: "WordPress", icon: <FaWordpress /> },
   { name: "Bootstrap", icon: <FaBootstrap /> },
-  { name: "Tailwind CSS", icon: <RiTailwindCssFill /> },
+  { name: "Tailwind", icon: <RiTailwindCssFill /> },
   { name: "VS Code", icon: <VscVscode /> },
   { name: "GitHub", icon: <FaGithub /> },
   { name: "PHP", icon: <FaPhp /> },

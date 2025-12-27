@@ -124,6 +124,10 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
 
   return (
     <section className="sobre-section">
+
+      <h1>Olá, me chamo Isaque.</h1>
+      <h2>Um pouco de mim em um linha do tempo:</h2>
+
       <div className="containerSobre"> {/* ===== TIMELINE ===== */}
 
         <div className="progress-container">
