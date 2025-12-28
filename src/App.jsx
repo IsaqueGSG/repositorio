@@ -6,10 +6,11 @@ import Navbar from './components/Navbar'
 import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
 import Sobre from './components/Sobre'
+import Projetos from './components/Projetos'
 
 export default function App() {
   const [index, setIndex] = useState(0)
-  const total = 3
+  const total = 4 //total de seções
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
   const touchEndY = useRef(0)
@@ -97,6 +98,9 @@ export default function App() {
           <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
 
           <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
+
+          <Projetos sessaoEmFoco={sessaoEmFoco} indexDaSessao={3} />
+
       </div>
     </div>
   )

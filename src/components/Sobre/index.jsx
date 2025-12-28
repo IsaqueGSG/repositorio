@@ -150,23 +150,17 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
 
       {/* ===== CARROSSEL ===== */}
       <div className="carousel">
-
-        <div
-          className="carousel-viewport"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
+        <div className="carousel-viewport">
           <div
-            className="carousel-track"
+            className="carousel-content"
             style={{ transform: `translateX(-${active * 100}%)` }}
           >
-            {data.map((yearData, index) => (
+            {data.map((card, index) => (
               <div className="card" key={index}>
-                <h2>{yearData.year}</h2>
+                <h2>{card.year}</h2>
 
-                {yearData.items.map((item, i) => (
-                  <div key={i} style={{ marginBottom: "15px" }}>
+                {card.items.map((item, i) => (
+                  <div key={i}>
                     <h4>{item.title}</h4>
                     <p>{item.text}</p>
                   </div>
@@ -174,27 +168,14 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
               </div>
             ))}
           </div>
-
         </div>
+
         <div className="containerBtnNav">
-          <button
-            className="nav left"
-            onClick={prev}
-            disabled={active === 0}
-          >
-            ❮
-          </button>
-
-          <button
-            className="nav right"
-            onClick={next}
-            disabled={active === data.length - 1}
-          >
-            ❯
-          </button>
-
+          <button onClick={prev} disabled={active === 0}>❮</button>
+          <button onClick={next} disabled={active === data.length - 1}>❯</button>
         </div>
       </div>
+
     </section>
   )
 }
