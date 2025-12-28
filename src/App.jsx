@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 
 import Navbar from './components/Navbar'
-import Projetos from './components/Projetos'
+import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
 import Sobre from './components/Sobre'
 
@@ -92,27 +92,11 @@ export default function App() {
         }}
       >
         {/* Hard code para melhor visualização */}
-        <section className="section">
-          <Sobre
-            sessaoEmFoco={sessaoEmFoco}
-            indexDaSessao={0}
-          />
-        </section>
+          <Sobre sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} />
+           
+          <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
 
-        <section className="section">
-          <Projetos
-            sessaoEmFoco={sessaoEmFoco}
-            indexDaSessao={1}
-          />
-        </section>
-
-        <section className="section">
-          <Contato
-            sessaoEmFoco={sessaoEmFoco}
-            indexDaSessao={2}
-          />
-        </section>
-
+          <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
       </div>
     </div>
   )

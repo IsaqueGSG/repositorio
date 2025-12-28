@@ -1,16 +1,23 @@
+/* index.css sobre */
+
 /* ===== GERAL ===== */
-.timeline-wrapper {
-  width: 80%;
-  margin: 0 auto;
+.sobre-section {
   color: white;
   font-family: sans-serif;
+  padding: 0 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===== TIMELINE ===== */
 .progress-container {
   position: relative;
   height: 100px;
-  margin-bottom: 40px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .progress-line {
@@ -83,14 +90,17 @@
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
+  will-change: transform;
 }
 
 .card {
-  min-width: 100%;
+  flex: 0 0 100%;
+  /* 🔥 MUITO IMPORTANTE */
   background: #1e1e1e;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {

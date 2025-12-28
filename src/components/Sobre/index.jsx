@@ -123,7 +123,7 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
 
 
   return (
-    <div className="timeline-wrapper">
+    <section className="sobre-section">
 
       {/* ===== TIMELINE ===== */}
       <div className="progress-container">
@@ -141,9 +141,8 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
               className="step-wrapper"
               onClick={() => setActive(index)}
             >
-              <span className="step-label">{data[index].year}</span>
-
               <div className={`step ${index <= active ? "active" : ""}`} />
+              <span className="step-label">{data[index].year}</span>
             </div>
           ))}
         </div>
@@ -178,10 +177,24 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
 
         </div>
         <div className="containerBtnNav">
-          <button className="nav left" onClick={prev}>❮</button>
-          <button className="nav right" onClick={next}>❯</button>
+          <button
+            className="nav left"
+            onClick={prev}
+            disabled={active === 0}
+          >
+            ❮
+          </button>
+
+          <button
+            className="nav right"
+            onClick={next}
+            disabled={active === data.length - 1}
+          >
+            ❯
+          </button>
+
         </div>
       </div>
-    </div>
+    </section>
   )
 }

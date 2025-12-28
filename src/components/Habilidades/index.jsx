@@ -20,7 +20,7 @@ const skills = [
   { name: "Node.js", icon: <FaNodeJs /> }
 ]
 
-export default function Skills() {
+export default function Habilidades() {
   return (
     <section className="skills-section">
       <p className="skills-subtitle">
