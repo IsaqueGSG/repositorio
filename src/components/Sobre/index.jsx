@@ -121,32 +121,10 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
     }
   }, [emFoco, active])
 
+  const progress = (active / (data.length - 1)) * 100;
 
   return (
     <section className="sobre-section">
-
-      {/* ===== TIMELINE ===== */}
-      <div className="progress-container">
-        <div className="progress-line">
-          <div
-            className="progress-fill"
-            style={{ width: `${progressWidth}%` }}
-          />
-        </div>
-
-        <div className="progress-steps">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="step-wrapper"
-              onClick={() => setActive(index)}
-            >
-              <div className={`step ${index <= active ? "active" : ""}`} />
-              <span className="step-label">{data[index].year}</span>
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* ===== CARROSSEL ===== */}
       <div className="carousel">

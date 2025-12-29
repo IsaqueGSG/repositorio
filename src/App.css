@@ -12,6 +12,10 @@
   grid-area: contato;
 }
 
+.projetos-section {
+  grid-area: projetos;
+}
+
 /* nada de scroll */
 .app {
   height: 100vh;

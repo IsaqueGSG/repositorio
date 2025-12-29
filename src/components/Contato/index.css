@@ -1,10 +1,10 @@
 /* index.css contato */
 
 .contato-section {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   color: white;
-  gap: 20px;
 }
