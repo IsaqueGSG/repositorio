@@ -1,12 +1,16 @@
 import "./index.css"
 
-export default function Navbar({ goTo }) {
+export default function Navbar({ goTo, totalSessoes, sessaoEmFoco }) {
+  
   return (
     <nav className="navbar">
-      <button onClick={() => goTo(0)}>0</button>
-      <button onClick={() => goTo(1)}>1</button>
-      <button onClick={() => goTo(2)}>2</button>
+      {Array.from({ length: totalSessoes }, (_, index) => (
+        <button
+          key={index}
+          onClick={() => goTo(index)}
+          className={`step ${index === sessaoEmFoco ? "active" : ""}`}
+        />
+      ))}
     </nav>
   )
 }
-

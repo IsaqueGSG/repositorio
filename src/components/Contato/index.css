@@ -2,9 +2,57 @@
 
 .contato-section {
   height: 100vh;
+  color: white;
+  padding: 0 40px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 32px;
+}
+
+.contato-card {
+  background: linear-gradient(
+    145deg,
+    rgba(20, 20, 20, 0.95),
+    rgba(10, 10, 10, 0.95)
+  );
+
+  border-radius: 20px;
+  padding: 40px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+}
+
+.contato-card a {
+  display: flex;
   align-items: center;
+  gap: 12px;
+
   color: white;
+  text-decoration: none;
+  font-size: 18px;
+
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contato-card a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+}
+
+.contato-card svg {
+  font-size: 26px;
 }

@@ -1,0 +1,94 @@
+/* index.css projetos */
+
+.apresentacao-section {
+  width: 100%;
+  gap: 14px;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+/* badge */
+.badge {
+  align-self: center;
+  padding: 6px 14px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #00ffd5;
+  background: rgba(0, 255, 213, 0.08);
+  border: 1px solid rgba(0, 255, 213, 0.25);
+  border-radius: 999px;
+}
+
+/* título principal */
+.apresentacao-section h1 {
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+}
+
+.apresentacao-section h1 span {
+  color: #00ffd5;
+}
+
+/* subtítulo */
+.apresentacao-section h2 {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* texto */
+.apresentacao-section p {
+  max-width: 720px;
+  margin: 0 auto;
+
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ações */
+.apresentacao-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.apresentacao-actions button {
+  padding: 12px 26px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 999px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* botão principal */
+.apresentacao-actions .primary {
+  background: #00ffd5;
+  color: #000;
+}
+
+.apresentacao-actions .primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 255, 213, 0.4);
+}
+
+/* botão secundário */
+.apresentacao-actions .secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.apresentacao-actions .secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}

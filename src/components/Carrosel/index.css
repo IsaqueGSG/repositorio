@@ -1,7 +1,7 @@
-/* index.css sobre */
+/* index.css carrosel */
 
 /* ===== GERAL ===== */
-.sobre-section {
+.carrosel-section {
   color: white;
   font-family: sans-serif;
   padding: 0 40px;
@@ -25,6 +25,7 @@
 .carousel-viewport {
   width: 100%;
   overflow: hidden;
+  touch-action: pan-y;
 }
 
 .carousel-content {
@@ -36,15 +37,44 @@
 
 .card {
   min-width: 100%;
-  /* cada card ocupa a tela */
-  padding: 32px;
+  padding: 40px;
   box-sizing: border-box;
 
-  background: #111;
-  color: white;
-  border-radius: 12px;
+  background: linear-gradient(
+    145deg,
+    rgba(20, 20, 20, 0.95),
+    rgba(10, 10, 10, 0.95)
+  );
+
+  border-radius: 20px;
+
+  /* profundidade */
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* borda sutil */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* animação */
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
+
+/* ===== Barra de progresso ===== */
+.progress-line {
+  height: 4px;
+  width: 100%;
+  background: #333;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: white;
+  transition: width 0.3s ease;
+}
 
 /* ===== BOTÕES ===== */
 .containerBtnNav {

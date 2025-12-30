@@ -61,7 +61,7 @@ const data = [
   }
 ]
 
-export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
+export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
   const emFoco = sessaoEmFoco === indexDaSessao
 
   const [active, setActive] = useState(0)
@@ -105,7 +105,6 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
     }
   }
 
-
   useEffect(() => {
     if (!emFoco) return
 
@@ -121,14 +120,22 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
     }
   }, [emFoco, active])
 
-  const progress = (active / (data.length - 1)) * 100;
 
   return (
-    <section className="sobre-section">
+    <section className="carrosel-section">
+
+      <div>
+        Um pouco sobre mim em um carrosel
+      </div>
 
       {/* ===== CARROSSEL ===== */}
       <div className="carousel">
-        <div className="carousel-viewport">
+        <div
+          className="carousel-viewport"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           <div
             className="carousel-content"
             style={{ transform: `translateX(-${active * 100}%)` }}
@@ -146,6 +153,13 @@ export default function Sobre({ sessaoEmFoco, indexDaSessao }) {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="progress-line">
+          <div
+            className="progress-fill"
+            style={{ width: `${(active / (data.length - 1)) * 100}%` }}
+          />
         </div>
 
         <div className="containerBtnNav">

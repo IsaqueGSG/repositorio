@@ -5,19 +5,23 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Habilidades from './components/Habilidades'
 import Contato from './components/Contato'
-import Sobre from './components/Sobre'
+import Carrosel from './components/Carrosel'
 import Projetos from './components/Projetos'
+import Apresentacao from './components/Apresentacao'
 
 export default function App() {
   const [index, setIndex] = useState(0)
-  const total = 4 //total de seções
+
+  // controla a quantidade de seções conforme a responsividade do layout
+  const totalSessoes = window.screen.width < 600 ? 5 : 3;
+
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
   const touchEndY = useRef(0)
 
 
   function goTo(i) {
-    if (i < 0 || i >= total) return
+    if (i < 0 || i >= totalSessoes) return
     setIndex(i)
   }
 
@@ -80,11 +84,9 @@ export default function App() {
   //indice as sessoes dependem da construcao do html abaixo
   const sessaoEmFoco = index
 
-
-
   return (
     <div className="app">
-      <Navbar goTo={goTo} />
+      <Navbar goTo={goTo} totalSessoes={totalSessoes} sessaoEmFoco={sessaoEmFoco} />
 
       <div
         className="viewport"
@@ -93,13 +95,16 @@ export default function App() {
         }}
       >
         {/* Hard code para melhor visualização */}
-          <Sobre sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} />
-           
-          <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
 
-          <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
+        <Apresentacao goTo={goTo} sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} />
 
-          <Projetos sessaoEmFoco={sessaoEmFoco} indexDaSessao={3} />
+        <Carrosel sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
+
+        <Projetos sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
+
+        <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={3} />
+
+        <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={4} />
 
       </div>
     </div>
