@@ -146,9 +146,9 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
                 <h2>{card.year}</h2>
 
                 {card.items.map((item, i) => (
-                  <div key={i}>
+                  <div key={i} className="card-content">
                     <h4>{item.title}</h4>
-                    <p>{item.text}</p>
+                    <p> * {item.text}</p>
                   </div>
                 ))}
               </div>

@@ -10,15 +10,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 20px;
+  /* border: 1px solid red; */
 }
 
 /* ===== CARROSSEL ===== */
 .carousel {
   width: 100%;
-  gap: 16px;
+  /* border: 1px solid red; */
 }
-
 
 .carousel-viewport {
   width: 100%;
@@ -34,13 +35,33 @@
 
 .card {
   min-width: 100%;
-  padding: 40px;
-
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  overflow: hidden;      /* 🔑 ESSENCIAL */
+  position: relative;    /* 🔑 cria contexto */
+  box-sizing: border-box;
+
+}
+
+.card div {
+  min-width: 100%;
+  padding: 10px;
+  isolation: isolate; /* 🔑 evita bleed lateral */
+
+  /* efeito vidro */
+  background: rgba(255, 255, 255, 0.002);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .card h2 {
   color: #00ffd5;
+  text-align: center;
 }
 
 .carrosel-section h1 {
