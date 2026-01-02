@@ -3,12 +3,17 @@
 .projetos-section {
   height: 100vh;
   color: white;
-  padding: 0 40px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 32px;
+}
+
+.projetos-section h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #00ffd5;
 }
 
 .projetos-grid {
@@ -18,20 +23,15 @@
 }
 
 .projeto-card {
-  background: linear-gradient(
-    145deg,
-    rgba(20, 20, 20, 0.95),
-    rgba(10, 10, 10, 0.95)
-  );
 
-  border-radius: 20px;
-  padding: 32px;
+  /* efeito vidro */
+  background: rgba(255, 255, 255, 0.002);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px;
 
   display: flex;
   flex-direction: column;

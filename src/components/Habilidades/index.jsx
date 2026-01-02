@@ -23,20 +23,21 @@ const skills = [
 export default function Habilidades() {
   return (
     <section className="skills-section">
-      <p className="skills-subtitle">
-        TODO PROBLEMA É UMA OPORTUNIDADE DE EVOLUIR.
-      </p>
 
-      <h2 className="skills-title">Skills & Experiencias</h2>
+      <div className="container-habilidades">
 
-      <div className="skills-grid">
-        {skills.map((skill, index) => (
-          <div className="skill-card" key={index}>
-            <div className="skill-icon">{skill.icon}</div>
-            <span>{skill.name}</span>
-          </div>
-        ))}
+        <h2 className="skills-title"> <span> Skills </span> & Experiencias</h2>
+
+        <div className="skills-grid">
+          {skills.map((skill, index) => (
+            <div className="skill-card" key={index}>
+              <div className="skill-icon">{skill.icon}</div>
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
+
     </section>
   )
 }

@@ -1,25 +1,46 @@
 /* index.css habilidades */
 
 .skills-section {
-  background: #0e0e0e;
+  width: 100%;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 40px;
-
 }
 
-.skills-subtitle {
-  font-size: 12px;
-  letter-spacing: 2px;
-  opacity: 0.6;
+.container-habilidades {
+  /* border-radius: 20px;
+  border: 1px solid white; */
+
+  width: 100% ;
+  padding: 40px;
+  gap: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* background: linear-gradient(145deg,
+      rgba(20, 20, 20, 0.95),
+      rgba(10, 10, 10, 0.95)); */
+
+
+
+  /* box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04); */
+
 }
 
 .skills-title {
   font-size: 48px;
   font-weight: 700;
+}
+
+.skills-title span {
+  color: #00ffd5;
 }
 
 .skills-description {

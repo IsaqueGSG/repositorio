@@ -13,7 +13,7 @@ export default function App() {
   const [index, setIndex] = useState(0)
 
   // controla a quantidade de seções conforme a responsividade do layout
-  const totalSessoes = window.screen.width < 600 ? 5 : 3;
+  const totalSessoes = window.screen.width < 600 ? 4 : 3;
 
   const isScrolling = useRef(false)
   const touchStartY = useRef(0)
@@ -94,17 +94,15 @@ export default function App() {
           transform: `translateY(-${index * 100}vh)`
         }}
       >
-        {/* Hard code para melhor visualização */}
+        {/* <Apresentacao sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} /> */}
 
-        <Apresentacao goTo={goTo} sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} />
+        <Carrosel sessaoEmFoco={sessaoEmFoco} indexDaSessao={0} />
 
-        <Carrosel sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
+        <Projetos sessaoEmFoco={sessaoEmFoco} indexDaSessao={1} />
 
-        <Projetos sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
+        <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={2} />
 
-        <Habilidades sessaoEmFoco={sessaoEmFoco} indexDaSessao={3} />
-
-        <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={4} />
+        <Contato sessaoEmFoco={sessaoEmFoco} indexDaSessao={3} />
 
       </div>
     </div>

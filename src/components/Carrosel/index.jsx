@@ -124,9 +124,10 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
   return (
     <section className="carrosel-section">
 
-      <div>
-        Um pouco sobre mim em um carrosel
-      </div>
+
+      <h1>
+        Olá, me chamo <span>Isaque</span>
+      </h1>
 
       {/* ===== CARROSSEL ===== */}
       <div className="carousel">
@@ -161,11 +162,11 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
             style={{ width: `${(active / (data.length - 1)) * 100}%` }}
           />
         </div>
-
         <div className="containerBtnNav">
           <button onClick={prev} disabled={active === 0}>❮</button>
           <button onClick={next} disabled={active === data.length - 1}>❯</button>
         </div>
+
       </div>
 
     </section>

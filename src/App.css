@@ -15,35 +15,59 @@
   height: 100vh;
   overflow: hidden;
   background: #0e0e0e;
+  background-image: url("./assets/12.gif");
+  background-size: cover; /* cobre toda a área */
+  background-position:center; /* centraliza */
+  background-repeat: no-repeat; /* evita repetição */
 }
 
 /* viewport quem mexe no scroll */
 .viewport {
+  padding: 0 40px;
   height: 100vh;
   width: 100%;
   transition: transform 0.5s ease;
 
   display: grid;
   grid-template-rows: repeat(3, 100vh);
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
-    "apresentacao carrosel"
+    /* "apresentacao carrosel"
     "projetos habilidades"
+    "contato contato" */
+    "carrosel habilidades"
+    "projetos projetos"
     "contato contato"
   ;
+
+  column-gap: 20px;
+}
+
+.viewport section {
+  height: 100vh;
+  width: 100%;
+  overflow: none; /* MUITO IMPORTANTE */
+  /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 600px) {
   .viewport {
     display: grid;
-    grid-template-rows: repeat(5, 100vh);
+    grid-template-rows: repeat(4, 100vh);
     grid-template-columns: 100%;
     grid-template-areas:
-      "apresentacao"
+      /* "apresentacao" */
       "carrosel"
-      "projetos"
       "habilidades"
+      "projetos"
       "contato"
     ;
+  }
+
+  .app{
+      background-image: url("./assets/11.gif");
+      background-size: cover; /* cobre toda a área */
+      background-position: center; /* centraliza */
+      background-repeat: no-repeat; /* evita repetição */
   }
 }
