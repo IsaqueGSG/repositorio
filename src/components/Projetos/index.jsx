@@ -5,15 +5,9 @@ const projetos = [
   {
     titulo: "Sistema de Agendamentos",
     descricao: "Aplicação para profissionais autônomos com gestão de horários, clientes e lucros.",
-    github: "#",
-    demo: "#"
+    github: "https://github.com/IsaqueGSG/app-react-agendamentos",
+    demo: "https://agendarapida.web.app/inicio"
   },
-  {
-    titulo: "Calculadora de Cálculo",
-    descricao: "Calculadora visual com gráficos 2D e 3D usando React e Plotly.",
-    github: "#",
-    demo: "#"
-  }
 ]
 
 export default function Projetos() {

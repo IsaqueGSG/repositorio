@@ -9,6 +9,14 @@
   justify-content: center;
 }
 
+
+@media screen and (max-width: 600px) {
+  .skills-section{
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+}
+
 .container-habilidades {
   /* border-radius: 20px;
   border: 1px solid white; */

@@ -1,61 +1,71 @@
 import { useState, useEffect } from "react"
 import "./index.css"
 
+import arrastaImg from "../../assets/arrasta3.webp";
+
 const data = [
   {
-    year: "2020",
+    titulo: "Linha do tempo",
     items: [
       {
-        title: "Ensino Médio Completo",
-        text: "Concluí o ensino médio na escola estadual Guilhermino Rodrigues de Lima."
-      },
-      {
-        title: "Primeira Realização Enem",
-        text: "Decorrente a pandemia de Covid-19 o enem que deveria ter ocorrido em 2020 foi realizado em 2021."
+        title: "Arraste para os lados",
+        conteudo: <img
+          src={arrastaImg}
+          alt="Arraste para os lados"
+          className="img-arrasta"
+        />
+        ,
+        type: "tag"
       }
     ],
   },
   {
-    year: "2021",
+    titulo: "2021",
     items: [
       {
         title: "Tecnólogo em Analise e Desenvolvimento de Sistemas",
-        text: "Ingressei na area de TI com o curso de ADS na Faculdade Eniac usando o Prouni."
+        conteudo: "Ingressei na area de TI com o curso de ADS na Faculdade Eniac usando o Prouni.",
+        type: "text"
       }
     ]
   },
   {
-    year: "2022",
+    titulo: "2022",
     items: [
       {
         title: "Primeiro estágio na área de TI",
-        text: "Estágio como Suporte Técnico na Amecred."
+        conteudo: "Estágio como Suporte Técnico na Amecred.",
+        type: "text"
       }
     ]
   },
   {
-    year: "2023",
+    titulo: "2023",
     items: [
       {
         title: "Experiencia profissional como Líder de equipe",
-        text: "Liderei o time de suporte técnico na Faculdade Unifesp."
+        conteudo: "Liderei o time de suporte técnico na Faculdade Unifesp.",
+        type: "text"
       },
       {
         title: "Conclusão do Tecnólogo em Análise e Desenvolvimento de Sistemas",
-        text: "Encerramento do curso e colação de grau."
+        conteudo: "Encerramento do curso e colação de grau.",
+        type: "text"
       },
       {
         title: "Segunda realização Enem",
-        text: "Sem grande expectativas realizei o enem para incentivo de pessoas proximas."
+        conteudo: "Sem grande expectativas realizei o enem para incentivo de pessoas proximas.",
+        type: "text"
       }
     ]
   },
   {
-    year: "2024",
+    titulo: "2024",
     items: [
       {
         title: "Bacharelado em Engenharia da Computação",
-        text: "ingressei no curso de Engenharia da Computação do Instituto Federal de SP usando o SISU."
+        conteudo: "ingressei no curso de Engenharia da Computação do Instituto Federal de SP usando o SISU.",
+        type: "text"
       }
     ]
   }
@@ -143,12 +153,17 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
           >
             {data.map((card, index) => (
               <div className="card" key={index}>
-                <h2>{card.year}</h2>
+                <h2>{card.titulo}</h2>
 
                 {card.items.map((item, i) => (
                   <div key={i} className="card-content">
-                    <h4>{item.title}</h4>
-                    <p> * {item.text}</p>
+                    <h4>* {item.title}</h4>
+                    {
+                      item.conteudo === "type"
+                        ? <p>{item.conteudo}</p>
+                        : item.conteudo
+                    }
+
                   </div>
                 ))}
               </div>

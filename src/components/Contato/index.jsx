@@ -7,22 +7,17 @@ export default function Contato() {
       <h2>Contato</h2>
 
       <div className="contato-card">
-        <a href="mailto:seuemail@email.com">
+        <a href="isaquegsgoncalves@gmail.com">
           <FaEnvelope />
           <span>Email</span>
         </a>
 
-        <a href="https://wa.me/5500000000000" target="_blank">
-          <FaWhatsapp />
-          <span>WhatsApp</span>
-        </a>
-
-        <a href="https://github.com/seuusuario" target="_blank">
+        <a href="https://github.com/isaqueGSG" target="_blank">
           <FaGithub />
           <span>GitHub</span>
         </a>
 
-        <a href="https://linkedin.com/in/seuusuario" target="_blank">
+        <a href="https://www.linkedin.com/in/isaquegsgon%C3%A7alves/" target="_blank">
           <FaLinkedin />
           <span>LinkedIn</span>
         </a>

@@ -15,6 +15,13 @@
   /* border: 1px solid red; */
 }
 
+@media screen and (max-width: 600px) {
+  .carrosel-section{
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+}
+
 /* ===== CARROSSEL ===== */
 .carousel {
   width: 100%;
@@ -40,8 +47,10 @@
   flex-direction: column;
   gap: 20px;
 
-  overflow: hidden;      /* 🔑 ESSENCIAL */
-  position: relative;    /* 🔑 cria contexto */
+  overflow: hidden;
+  /* 🔑 ESSENCIAL */
+  position: relative;
+  /* 🔑 cria contexto */
   box-sizing: border-box;
 
 }
@@ -49,7 +58,8 @@
 .card div {
   min-width: 100%;
   padding: 10px;
-  isolation: isolate; /* 🔑 evita bleed lateral */
+  isolation: isolate;
+  /* 🔑 evita bleed lateral */
 
   /* efeito vidro */
   background: rgba(255, 255, 255, 0.002);
@@ -74,6 +84,26 @@
 .carrosel-section h1 span {
   color: #00ffd5;
 }
+
+
+.img-arrasta {
+  width: 100%;
+  padding: 20px;
+  filter:invert(1);
+  margin: 0 auto;
+  opacity: 0.85;
+  animation: balanco 1.8s ease-in-out infinite;
+}
+
+@keyframes balanco {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-15px); }
+  50%  { transform: translateX(15px); }
+  75%  { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+
 
 
 /* ===== Barra de progresso ===== */
