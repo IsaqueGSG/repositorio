@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
 import "./index.css"
 
-import arrastaImg from "../../assets/arrasta3.webp";
+import arrastaImg from "../../assets/iconArrasta.png";
 
 const data = [
   {
-    titulo: "Linha do tempo",
+    titulo: "minha linha do tempo",
     items: [
       {
-        title: "Arraste para os lados",
+        title: "Navegue pela linha do tempo arrastando para à esquerda ou use os botões",
         conteudo: <img
           src={arrastaImg}
           alt="Arraste para os lados"
@@ -75,8 +75,6 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
   const emFoco = sessaoEmFoco === indexDaSessao
 
   const [active, setActive] = useState(0)
-
-  const progressWidth = (active / (data.length - 1)) * 100
 
   const next = () => {
     if (active < data.length - 1) setActive(active + 1)
@@ -159,9 +157,11 @@ export default function Carrosel({ sessaoEmFoco, indexDaSessao }) {
                   <div key={i} className="card-content">
                     <h4>* {item.title}</h4>
                     {
-                      item.conteudo === "type"
+                      item.type === "text"
                         ? <p>{item.conteudo}</p>
-                        : item.conteudo
+                        : <div className="containerImg" >
+                            {item.conteudo}
+                          </div>
                     }
 
                   </div>

@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .carrosel-section{
+  .carrosel-section {
     justify-content: flex-start;
     margin-top: 20px;
   }
@@ -55,7 +55,7 @@
 
 }
 
-.card div {
+.card .card-content {
   min-width: 100%;
   padding: 10px;
   isolation: isolate;
@@ -85,26 +85,25 @@
   color: #00ffd5;
 }
 
+.containerImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .img-arrasta {
-  width: 100%;
+  width: 50%;
   padding: 20px;
-  filter:invert(1);
+  filter: invert(1);
   margin: 0 auto;
   opacity: 0.85;
-  animation: balanco 1.8s ease-in-out infinite;
 }
 
-@keyframes balanco {
-  0%   { transform: translateX(0); }
-  25%  { transform: translateX(-15px); }
-  50%  { transform: translateX(15px); }
-  75%  { transform: translateX(-10px); }
-  100% { transform: translateX(0); }
+@media screen and (max-width: 600px) {
+  .img-arrasta {
+    width: 100%;
+  }
 }
-
-
-
 
 /* ===== Barra de progresso ===== */
 .progress-line {

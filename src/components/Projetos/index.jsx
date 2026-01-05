@@ -3,11 +3,20 @@ import "./index.css"
 
 const projetos = [
   {
-    titulo: "Sistema de Agendamentos",
-    descricao: "Aplicação para profissionais autônomos com gestão de horários, clientes e lucros.",
+    descricao: "App de agendamento com gestão de horários, clientes e lucros.",
     github: "https://github.com/IsaqueGSG/app-react-agendamentos",
     demo: "https://agendarapida.web.app/inicio"
   },
+  {
+    descricao: "App para professores da materia de calculo do IFSP.",
+    github: "https://github.com/IsaqueGSG/plot3d",
+    demo: "https://plot3d.web.app/"
+  },
+  {
+    descricao: "App para professores da materia de calculo do IFSP.",
+    github: "https://github.com/IsaqueGSG/plot3d",
+    demo: "https://plot3d.web.app/"
+  }
 ]
 
 export default function Projetos() {
@@ -18,7 +27,6 @@ export default function Projetos() {
       <div className="projetos-grid">
         {projetos.map((p, index) => (
           <div className="projeto-card" key={index}>
-            <h3>{p.titulo}</h3>
             <p>{p.descricao}</p>
 
             <div className="projeto-links">

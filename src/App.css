@@ -15,7 +15,7 @@
   height: 100vh;
   overflow: hidden;
   background: #0e0e0e;
-  background-image: url("./assets/12.gif");
+  background-image: url("./assets/fundoDesktop.gif");
   background-size: cover; /* cobre toda a área */
   background-position:center; /* centraliza */
   background-repeat: no-repeat; /* evita repetição */
@@ -65,7 +65,7 @@
   }
 
   .app{
-      background-image: url("./assets/11.gif");
+      background-image: url("./assets/fundoMobile.gif");
       background-size: cover; /* cobre toda a área */
       background-position: center; /* centraliza */
       background-repeat: no-repeat; /* evita repetição */
