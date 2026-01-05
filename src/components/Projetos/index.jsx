@@ -13,9 +13,9 @@ const projetos = [
     demo: "https://plot3d.web.app/"
   },
   {
-    descricao: "App para professores da materia de calculo do IFSP.",
-    github: "https://github.com/IsaqueGSG/plot3d",
-    demo: "https://plot3d.web.app/"
+    descricao: "Leading page para empresa Amecred.",
+    github: "",
+    demo: "https://amecred.wordpress.com/"
   }
 ]
 
@@ -30,12 +30,30 @@ export default function Projetos() {
             <p>{p.descricao}</p>
 
             <div className="projeto-links">
-              <a href={p.github} target="_blank">
-                <FaGithub /> Código
-              </a>
-              <a href={p.demo} target="_blank">
+              <button
+                disabled={!p.github}
+                className="btn"
+                onClick={() => {
+                  if (p.github) {
+                    window.open(p.github, "_blank");
+                  }
+                }}
+              >
+                <FaGithub /> Git Hub
+              </button>
+
+              <button
+                disabled={!p.demo}
+                className="btn"
+                onClick={() => {
+                  if (p.demo) {
+                    window.open(p.demo, "_blank");
+                  }
+                }}
+              >
                 <FaExternalLinkAlt /> Demo
-              </a>
+              </button>
+
             </div>
           </div>
         ))}
